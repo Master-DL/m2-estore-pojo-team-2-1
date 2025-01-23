@@ -13,10 +13,10 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-public class Store {
+public class Store implements IStore {
 
-    private final Provider provider;
-    private final Bank bank;
+    private final IProvider provider;
+    private final IBank bank;
     /**
      * A map of emitted orders.
      * keys = order keys as Integers
@@ -33,7 +33,7 @@ public class Store {
     /**
      * Constructs a new StoreImpl
      */
-    public Store(Provider prov, Bank bk) {
+    public Store(IProvider prov, IBank bk) {
         provider = prov;
         bank = bk;
     }
@@ -221,7 +221,7 @@ public class Store {
         if (iis == null) {
             int quantity = qty + more;
             delay += provider.order(this, item, quantity);
-            ItemInStock newItem = new ItemInStock(item, more, price, provider);
+            ItemInStock newItem = new ItemInStock(item, more, price, (Provider) provider);
             itemsInStock.put(item, newItem);
         } else {
             // The item is in the stock

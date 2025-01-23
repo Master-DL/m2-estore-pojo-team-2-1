@@ -14,7 +14,6 @@ public class Main {
 		Client cl = new Client(store);
 		
 		cl.run();
-
 	}
 
 }
