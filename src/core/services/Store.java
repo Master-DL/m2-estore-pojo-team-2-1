@@ -1,10 +1,13 @@
-package core;
+package core.services;
 
 	import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
+import core.data.Cart;
+import core.data.ItemInStock;
+import core.data.Order;
 import estorePojo.exceptions.InsufficientBalanceException;
 import estorePojo.exceptions.InvalidCartException;
 import estorePojo.exceptions.UnknownAccountException;
@@ -68,7 +71,6 @@ public class Store {
 	     *      Either a new cart at each call or the same cart updated.
 	     * 
 	     * @throws UnknownItemException
-	     * @throws MismatchClientCartException
 	     *      if the given client does not own the given cart
 	     */
 	    public Cart addItemToCart(
@@ -104,7 +106,7 @@ public class Store {
 	     * 
 	     * @throws UnknownItemException
 	     */
-	    public Order pay( Cart cart, String address, String bankAccountRef )
+	    public Order pay(Cart cart, String address, String bankAccountRef )
 	    throws
 	    InvalidCartException, UnknownItemException,
 	    InsufficientBalanceException, UnknownAccountException {

@@ -1,5 +1,7 @@
-package core;
+package core.services;
 
+import core.data.Cart;
+import core.data.Order;
 import estorePojo.exceptions.InsufficientBalanceException;
 import estorePojo.exceptions.InvalidCartException;
 import estorePojo.exceptions.UnknownAccountException;
